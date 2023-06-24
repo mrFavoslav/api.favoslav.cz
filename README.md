@@ -1,0 +1,3 @@
+# api.favoslav.cz
+
+Will be soon...
