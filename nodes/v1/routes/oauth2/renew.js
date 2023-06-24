@@ -5,6 +5,15 @@ const {request} = require('undici');
 const {clientId, clientSecret, port} = require('/home/api/config.json');
 const dir = __filename.replace('/home/api/nodes', '').replace('/routes', '').replace('.js', '');
 
+var RateLimit = require('express-rate-limit');
+var limiter = RateLimit({
+  windowMs: 1*60*1000, // 1 minute
+  max: 5
+});
+
+// apply rate limiter to all requests
+app.use(limiter);
+
 require("dotenv").config({ path: '/home/api/.env' });
 const authenticateToken = (req, res, next) => {
   const authHeader = req.headers.authorization;

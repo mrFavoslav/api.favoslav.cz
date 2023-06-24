@@ -4,6 +4,15 @@ const fs = require("fs");
 const { request } = require("undici");
 const { clientId, clientSecret, port } = require("/home/api/config.json");
 
+var RateLimit = require('express-rate-limit');
+var limiter = RateLimit({
+  windowMs: 1*60*1000, // 1 minute
+  max: 5
+});
+
+// apply rate limiter to all requests
+app.use(limiter);
+
 router.get("/", async ({ query }, res) => {
   const dir = __filename.replace("/home/api/nodes", "").replace("/routes", "").replace(".js", "");
   console.log(`[BOApi] Received GET request for ${dir}`);
