@@ -12,7 +12,7 @@ var limiter = RateLimit({
 });
 
 // apply rate limiter to all requests
-app.use(limiter);
+router.use(limiter);
 
 require("dotenv").config({ path: '/home/api/.env' });
 const authenticateToken = (req, res, next) => {

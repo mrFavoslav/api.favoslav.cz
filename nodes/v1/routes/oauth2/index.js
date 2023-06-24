@@ -10,7 +10,7 @@ var limiter = RateLimit({
 });
 
 // apply rate limiter to all requests
-app.use(limiter);
+router.use(limiter);
 
 router.get('/', async ({ query }, res) => {
     const dir = __filename.replace('/home/api/nodes', '').replace('/routes', '').replace('/index.js', '');
