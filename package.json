@@ -1,0 +1,15 @@
+{
+  "name": "api",
+  "version": "v1.1.0",
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "path": "^0.12.7",
+    "php-node": "^0.0.2",
+    "phpcgijs": "^1.1.0",
+    "pm2": "^5.2.2",
+    "undici": "^5.13.0",
+    "vhost": "^3.0.2"
+  }
+}
