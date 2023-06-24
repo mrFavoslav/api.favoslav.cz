@@ -8,7 +8,7 @@ const dir = __filename.replace('/home/api/nodes', '').replace('/routes', '').rep
 var RateLimit = require('express-rate-limit');
 var limiter = RateLimit({
   windowMs: 1*60*1000, // 1 minute
-  max: 5
+  max: 10
 });
 
 // apply rate limiter to all requests
