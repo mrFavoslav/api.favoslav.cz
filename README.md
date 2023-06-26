@@ -8,9 +8,9 @@
   - `/v1/oauth2/renew`: Endpoint to renew data and access tokens.
 
 - Content Delivery Endpoints:
-  - `/data/body_style`: Endpoint to retrieve CSS style for www.favoslav.cz.
-  - `/data/icon`: Endpoint to retrieve icon for www.favoslav.cz.
-  - `/data/menu_script`: Endpoint to retrieve JS hamburger menu script for www.favoslav.cz.
+  - `/data/body_style`: Endpoint to retrieve CSS style for <www.favoslav.cz>.
+  - `/data/icon`: Endpoint to retrieve icon for <www.favoslav.cz>.
+  - `/data/menu_script`: Endpoint to retrieve JS hamburger menu script for <www.favoslav.cz>.
 
 ## Getting Started
 
@@ -39,5 +39,3 @@ To contribute to this project, please follow the [standard Git workflow](https:/
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-
-
