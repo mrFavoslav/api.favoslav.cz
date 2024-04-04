@@ -1,10 +1,19 @@
 {
   "name": "api",
-  "version": "1.1.0",
+  "version": "v1.1.0",
   "dependencies": {
+    "body-parser": "^1.20.2",
+    "cookie": "^0.6.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.2.0",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-rate-limit": "^6.11.2",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql": "^2.18.1",
+    "path": "^0.12.7",
     "undici": "^5.26.2",
     "vhost": "^3.0.2"
   },
