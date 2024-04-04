@@ -3,12 +3,40 @@ const vhost = require("vhost");
 const fs = require("fs");
 const path = require("path");
 const port = require("./config.json");
+//const helmet = require('helmet');
 
 const nodesDirectory = path.join(__dirname, "nodes");
 const nodes = fs.readdirSync(nodesDirectory);
 
 const app = express();
-app.set("trust proxy", true);
+app.set("trust proxy", 'loopback');
+// app.use(helmet.contentSecurityPolicy({
+//   directives: {
+//     // Specify your CSP directives here
+//     defaultSrc: ["'self'"],
+//     scriptSrc: ["'self'"],
+//     styleSrc: ["'self'"],
+//     // Add other directives as needed
+//   },
+// }));
+
+app.use((req, res, next) => {
+  // const origin = req.headers.origin;
+  // res.header('Access-Control-Allow-Origin', origin);
+  res.header('Access-Control-Allow-Origin', 'https://www.favoslav.cz');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  next();
+});
+
+var RateLimit = require('express-rate-limit');
+var limiter = RateLimit({
+  windowMs: 1*60*1000, // 1 minute
+  max: 100
+});
+app.use(limiter);
+
 app.use("/", (req, res, next) => {
   const clientIp = req.headers["x-forwarded-for"] || req.ip;
   const userAgent = req.get("User-Agent");

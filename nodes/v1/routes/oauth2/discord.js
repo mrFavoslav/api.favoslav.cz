@@ -30,7 +30,7 @@ router.get("/", async ({ query }, res) => {
             client_secret: clientSecret,
             code,
             grant_type: "authorization_code",
-            redirect_uri: `https://api.favoslav.cz/auth/discord`
+            redirect_uri: `https://api.favoslav.cz/v1/oauth2/discord`
             //scope: 'identify, guilds',
           }).toString(),
           headers: {
