@@ -5,14 +5,14 @@ const path = require("path");
 const router = express.Router();
 const routesDirectory = path.join(__dirname, "routes");
 
-var RateLimit = require('express-rate-limit');
-var limiter = RateLimit({
-  windowMs: 1*60*1000, // 1 minute
-  max: 100
-});
+// var RateLimit = require('express-rate-limit');
+// var limiter = RateLimit({
+//   windowMs: 1*60*1000, // 1 minute
+//   max: 100
+// });
 
-// apply rate limiter to all requests
-router.use(limiter);
+// // apply rate limiter to all requests
+// router.use(limiter);
 
 router.get("/", (req, res) => {
   const dir = __dirname.replace("/home/api/nodes", "");
@@ -37,9 +37,9 @@ function mountRoutes(directory) {
       } else if (stat.isDirectory()) {
         mountRoutes(filePath);
       } else if (stat.isFile()) {
-        if (file == 'index.js') {
-          const endpoint = filePath.replace("/home/api/nodes/v1/routes", "").replace("/index.js", "");
-          const trueendpoint = filePath.replace("/home/api/nodes", "").replace("/routes", "").replace("/index.js", "");
+        if (file === 'index.js') {
+          const endpoint = filePath.replace("/home/api/nodes/v1/routes", "").replace(`/${file}`, "");
+          const trueendpoint = filePath.replace("/home/api/nodes", "").replace("/routes", "").replace(`/${file}`, "");
           const endpointconfig = require(`.${filePath.replace(__dirname, "")}`);
           console.log(`[BOApi] Loaded endpoint ${trueendpoint}`);
           router.use(endpoint, endpointconfig);

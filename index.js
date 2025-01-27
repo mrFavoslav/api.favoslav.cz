@@ -53,7 +53,7 @@ app.get("/", (req, res) => {
 });
 
 nodes.forEach(node => {
-  const nodeRoutes = require(`./nodes/${node}/${node}_index.js`);
+  const nodeRoutes = require(`./nodes/${node}/${node}_router.js`);
   const nodeRouter = express.Router().use(`/${node}`, nodeRoutes);
   console.log(`[BOApi] Loaded endpoint /${node}`);
   app.use(vhost("api.favoslav.cz", nodeRouter));
