@@ -5,15 +5,6 @@ const path = require("path");
 const router = express.Router();
 const routesDirectory = path.join(__dirname, "routes");
 
-// var RateLimit = require('express-rate-limit');
-// var limiter = RateLimit({
-//   windowMs: 1*60*1000, // 1 minute
-//   max: 100
-// });
-
-// // apply rate limiter to all requests
-// router.use(limiter);
-
 router.get("/", (req, res) => {
   const dir = __dirname.replace("/home/api/nodes", "");
   console.log(`[BOApi] Received GET request for ${dir}`);

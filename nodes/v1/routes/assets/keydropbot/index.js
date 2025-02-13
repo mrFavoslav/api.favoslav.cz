@@ -4,15 +4,6 @@ const fs = require('fs');
 const path = require('path');
 const { clientId, clientSecret, port } = require('/home/api/config.json');
 
-var RateLimit = require('express-rate-limit');
-var limiter = RateLimit({
-  windowMs: 1 * 60 * 1000, // 1 minute
-  max: 1000,
-});
-
-// Apply rate limiter to all requests
-router.use(limiter);
-
 router.use('/monkey', (req, res, next) => {
     const requestedPath = `/v1/assets/keydropbot/monkey${req.path}`;
     console.log(`[BOApi] Received GET request for ${requestedPath}`);
