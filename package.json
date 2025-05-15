@@ -14,7 +14,7 @@
     "jsonwebtoken": "^9.0.2",
     "mysql": "^2.18.1",
     "path": "^0.12.7",
-    "undici": "^5.28.5",
+    "undici": "^5.29.0",
     "vhost": "^3.0.2"
   },
   "description": "Source code for RESTful API that provides OAuth2 Discord endpoints for authentication and authorization, as well as endpoints for delivering content for my website",
